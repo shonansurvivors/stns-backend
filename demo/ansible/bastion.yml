@@ -1,0 +1,12 @@
+---
+- hosts: bastion
+  become: yes
+  tasks:
+
+    - name: ping check
+      ping:
+      register: result
+
+    - name: debug
+      debug:
+        msg: "{{ result }}"
