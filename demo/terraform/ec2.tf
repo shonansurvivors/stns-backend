@@ -5,7 +5,8 @@ resource "aws_instance" "bastion" {
   subnet_id     = aws_subnet.public[0].id
   user_data     = file("./user_data/bastion.sh")
   vpc_security_group_ids = [
-    aws_security_group.ssh.id
+    aws_security_group.ssh.id,
+    aws_security_group.vpc.id,
   ]
 
   tags = {
